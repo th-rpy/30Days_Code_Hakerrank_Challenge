@@ -1,5 +1,4 @@
 # Enter your code here. Read input from STDIN. Print output to STDOUT
-# Enter your code here. Read input from STDIN. Print output to STDOUT
 import sys
 data = [line.rstrip().split()[0] for line in sys.stdin.readlines()]
 
