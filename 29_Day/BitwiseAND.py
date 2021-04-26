@@ -16,16 +16,9 @@ import sys
 #
 
 def bitwiseAnd(N, K):
-    # Write your code here
-    maximum = 0
+    # Write your code her
 
-    for j in range(1, N):
-        for k in range(j + 1, N + 1):
-            h = j & k
-            if K > h > maximum:
-                maximum = h
-
-    return(maximum)
+    return (K-1 if ((K-1) | K) <= N else K-2)
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
