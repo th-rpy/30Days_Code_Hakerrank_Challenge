@@ -15,8 +15,8 @@ class Solution:
                 root.right=cur
         return root
 
-    def getHeight(self,root):
-        #Write your code here
+    def getHeight(self, root):
+        return -1 if root is None else 1 + max(self.getHeight(root.left), self.getHeight(root.right))
 
 T=int(input())
 myTree=Solution()
@@ -25,4 +25,4 @@ for i in range(T):
     data=int(input())
     root=myTree.insert(root,data)
 height=myTree.getHeight(root)
-print(height)    
+print(height)       
