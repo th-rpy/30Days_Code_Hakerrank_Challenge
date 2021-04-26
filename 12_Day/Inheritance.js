@@ -36,12 +36,29 @@ class Student extends Person {
     *   @param scores - An array of integers denoting the Person's test scores.
     */
     // Write your constructor here
-
+    constructor(firstName, lastName, identification, scores) {
+    super(firstName, lastName, identification); // Now 'this' is initialized by calling the parent constructor.
+    this.scores = scores;
+    }
+    
     /*	
     *   Method Name: calculate
     *   @return A character denoting the grade.
     */
     // Write your method here
+    calculate(){
+        let testScores = this.scores + ''
+        testScores = testScores.split(',')
+        testScores = testScores.map(el=>parseInt(el))
+        const sum = testScores.reduce((a, b) => a + b, 0);
+        const avg = (sum / testScores.length) || 0;
+        if (avg < 40){return 'T'}
+        if (40 <= avg & avg < 55){return 'D'}
+        if (55 <= avg & avg < 70){return 'P'}
+        if (70 <= avg & avg < 80){return 'A'}
+        if (80 <= avg & avg < 90){return 'E'}
+        if (90 <= avg & avg <= 100){return 'O'}
+    }
     
 }
 
@@ -99,8 +116,8 @@ class Student extends Person {
     *   @param scores - An array of integers denoting the Person's test scores.
     */
     // Write your constructor here
-    constructor(scores) {
-    super(); // Now 'this' is initialized by calling the parent constructor.
+    constructor(firstName, lastName, identification, scores) {
+    super(firstName, lastName, identification); // Now 'this' is initialized by calling the parent constructor.
     this.scores = scores;
     }
     
@@ -110,7 +127,17 @@ class Student extends Person {
     */
     // Write your method here
     calculate(){
-        
+        let testScores = this.scores + ''
+        testScores = testScores.split(',')
+        testScores = testScores.map(el=>parseInt(el))
+        const sum = testScores.reduce((a, b) => a + b, 0);
+        const avg = (sum / testScores.length) || 0;
+        if (avg < 40){return 'T'}
+        if (40 <= avg & avg < 55){return 'D'}
+        if (55 <= avg & avg < 70){return 'P'}
+        if (70 <= avg & avg < 80){return 'A'}
+        if (80 <= avg & avg < 90){return 'E'}
+        if (90 <= avg & avg <= 100){return 'O'}
     }
     
 }
@@ -131,3 +158,4 @@ function main() {
     s.calculate()
     console.log('Grade: ' + s.calculate())
 }
+
